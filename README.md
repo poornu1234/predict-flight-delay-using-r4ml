@@ -1,32 +1,31 @@
-# Predicting the  flight delay  and building ML pipeline using scalable R package, R4ML
+# Predicting flight delay and building an ML pipeline using R4ML
 
-
-In this developer journey we will use R4ML running on IBM Data Science Experience (DSX) to perform various a Machine Learning exercise. DSX is an interactive, collaborative, cloud-based environment where data scientists, developers, and others interested in data science can use tools (e.g., RStudio, Jupyter Notebooks, Spark, etc.) to collaborate, share, and gather insight from their data.
+In this developer journey we will use R4ML, a scalable R package, running on IBM Data Science Experience (DSX) to perform various Machine Learning exercises. For those users who are unfamiliar with the Data Science Experience, DSX is an interactive, collaborative, cloud-based environment where data scientists, developers, and others interested in data science can use tools (e.g., RStudio, Jupyter Notebooks, Spark, etc.) to collaborate, share, and gather insight from their data.
 
 When the reader has completed this journey, they will understand how to:
 
-* Use [Jupyter Notebooks](http://jupyter.org/) to load, visualize, and analyze data
-* Run Notebooks in [IBM Data Science Experience](https://datascience.ibm.com/)
-* Leverage [R4ML](https://github.com/SparkTC/r4ml) to do the big data exploratory analysis and data preperation
+* Use [Jupyter Notebooks](http://jupyter.org/) to load, visualize, and analyze data.
+* Run Notebooks in [IBM Data Science Experience](https://datascience.ibm.com/).
+* Leverage [R4ML](https://github.com/SparkTC/r4ml) to conduct preprocessing and exploratory analysis with big data
 
 
 # What problem does it solve for developers?
 1. Large Scale Data Analysis
-2. Large Scale Model Training for classification using Support Vector Machine
+2. Large Scale Model Training for classification using a Support Vector Machine
 3. Large Scale Model Tuning using Cross validation
 
-Included Components
+Included Components:
 
 * [IBM Data Science Experience](https://www.ibm.com/bs-en/marketplace/data-science-experience): Analyze data using RStudio, Jupyter, and Python in a configured, collaborative environment that includes IBM value-adds, such as managed Spark.
 * [IBM Analytics for Apache Spark](https://console.ng.bluemix.net/catalog/services/apache-spark): An open source cluster computing framework optimized for extremely fast and large scale data processing.
 * [Bluemix Object Storage](https://console.bluemix.net/catalog/services/object-storage): Build and deliver cost effective apps and services with high reliability and fast speed to market in an unstructured cloud data store.
 
-## Featured technologies
+## Featured Technologies:
 
-* [Jupyter Notebooks](http://jupyter.org/): An open-source web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text.
-* [R4ML](https://github.com/SparkTC/r4ml) R4ML is a scalable, hybrid approach to ML/Stats using R, Apache SystemML, and Apache Spark
+* [Jupyter Notebooks](http://jupyter.org/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text.
+* [R4ML](https://github.com/SparkTC/r4ml): R4ML is a scalable, hybrid approach to ML/Stats using R, Apache SystemML, and Apache Spark
 
-R4ML Key Features
+R4ML Key Features:
 
   - R4ML is a git downloadable open source R package from IBM
 
@@ -42,23 +41,23 @@ R4ML Key Features
 
   - APIs are friendlier to the R user
 
-# Steps
+# Steps:
 
 Follow these steps to setup and run this developer journey. These steps are described in detail below.
 
 1. [Sign up for the Data Science Experience](#1-sign-up-for-the-data-science-experience)
 2. [Create the notebook](#2-create-the-notebook)
 3. [Run the notebook](#3-run-the-notebook)
-4. [Save and Share](#4-save-and-share)
+4. [Save and share](#4-save-and-share)
 
 ## 1. Sign up for the Data Science Experience
 
-Sign up for IBM's [Data Science Experience](http://datascience.ibm.com/). By signing up for the Data Science Experience, two services: ``DSX-Spark`` and ``DSX-ObjectStore`` will be created in your Bluemix account. If these services do not exist, or if you are already using them for some other application, you will need to create new instances.
+Sign up for IBM's [Data Science Experience](http://datascience.ibm.com/). By signing up for the Data Science Experience, two services will be created in your Bluemix account: ``DSX-Spark`` and ``DSX-ObjectStore``. If these services do not exist, or if you are already using them for some other application, you will need to create new instances.
 
 To create these services:
-* Login to your [Bluemix](http://bluemix.net) account.
-* Create your Spark service by selecting the service type [Apache Spark](https://console.bluemix.net/catalog/services/apache-spark). If not already used, name your service ``DSX-Spark``. 
-* Create your Object Storage service by selecting the service type [Cloud Object Storage](https://console.bluemix.net/catalog/infrastructure/object-storage-group). If not already used, name your service ``DSX-ObjectStorage``.
+* Login or create your [Bluemix](http://bluemix.net) account.
+* Create your Spark service by selecting the service type [Apache Spark](https://console.bluemix.net/catalog/services/apache-spark). If the name has not already been used, name your service ``DSX-Spark`` so that you can keep track of it.
+* Create your Object Storage service by selecting the service type [Cloud Object Storage](https://console.bluemix.net/catalog/infrastructure/object-storage-group). If the name has not already been used, name your service ``DSX-ObjectStorage`` so that you can keep track of it.
 
 > Note: When creating your Object Storage service, select the ``Swift`` storage type in order to avoid having to pay an upgrade fee.
 
@@ -76,7 +75,7 @@ First you must create a new Project:
 * Click ``Create``.
 
 
-Create the Notebook 1:
+Create Notebook 1:
 * Click on your project to open up the project details panel.
 * Click ``add notebooks``.
 * Click the tab for ``From URL`` and enter a ``Name`` and optional ``Description``.
@@ -98,7 +97,7 @@ format is `In [x]:`. Depending on the state of the notebook, the `x` can be:
 
 * A blank, this indicates that the cell has never been executed.
 * A number, this number represents the relative order this code step was executed.
-* A `*`, this indicates that the cell is currently executing.
+* A `*`, which indicates that the cell is currently executing.
 
 There are several ways to execute the code cells in your notebook:
 
