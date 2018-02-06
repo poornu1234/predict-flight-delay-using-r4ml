@@ -8,11 +8,34 @@ When the reader has completed this journey, they will understand how to:
 * Run Notebooks in [IBM Data Science Experience](https://datascience.ibm.com/).
 * Leverage [R4ML](https://github.com/SparkTC/r4ml) to conduct preprocessing and exploratory analysis with big data
 
+The Intended audience of this code pattern is data scientists, who wish to apply scalable machine learning algorithms using R.
+R4ML provides various out of the box algorithms to experiments with. This specific Code Pattern will provide a SVM (Suport Vector Machine) example to demonstrate the ease and power of R4ML in implementing the scalable classification. For more information about additional functionality support, documentation, and the roadmap, please vist [R4ML](https://github.com/SparkTC/r4ml)
+
+
+### Source of data
+ -) We use the Airline On-Time Statistics and Delay Causes from RITA
+    A 1% sample of the "airline" dataset available at
+     http://stat-computing.org/dataexpo/2009/the-data.html This data
+     originally comes from RITA (http://www.rita.dot.gov) and is in the
+     public domain.
+ -) For this example, we will use, a subset of above dataset, which is shipped with R4ML
+ -) User can use the bigger dataset from RITA and our code will work with that.
+
+
+
+## Flow
+
+![](doc/source/images/architecture.png)
+
+1. Load the provided notebook onto the IBM Data Science Experience platform.
+2. The notebook interacts with an Apache Spark instance.
+3. A sample big data dataset is loaded into the Jupyter Notebook.
+4. To perform machine learning, R4ML is used atop Apache Spark.
 
 # What problem does it solve for developers?
-1. Large Scale Data Analysis
-2. Large Scale Model Training for classification using a Support Vector Machine
-3. Large Scale Model Tuning using Cross validation
+
+1. Large Scale Model Training for classification using a Support Vector Machine
+2. Large Scale Model Tuning using Cross validation
 
 Included Components:
 
@@ -25,7 +48,10 @@ Included Components:
 * [Jupyter Notebooks](http://jupyter.org/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text.
 * [R4ML](https://github.com/SparkTC/r4ml): R4ML is a scalable, hybrid approach to ML/Stats using R, Apache SystemML, and Apache Spark
 
-R4ML Key Features:
+
+## Analysis Section:
+
+#### Scalable R4ML Key Features:
 
   - R4ML is a git downloadable open source R package from IBM
 
@@ -40,6 +66,18 @@ R4ML Key Features:
   - Provides both SparkR and Apache SystemML functionality
 
   - APIs are friendlier to the R user
+
+#### Predict whether the flight will be delayed or not?
+  
+  - We will first load the package and data and do the initial transformation of the dataset
+  
+  - Then we will use the inbuilt SVM algorithm from R4ML to predict whether airline will be delayed or not
+
+  - Then we will observe the output accuracy and confusion matrix
+
+  - We will use Cross Validation to improve the accuracy of the classifications.
+
+  - More details are in the notebook.
 
 # Steps:
 
