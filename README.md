@@ -13,13 +13,16 @@ R4ML provides various out of the box algorithms to experiments with. This specif
 
 
 ### Source of data
- -) We use the Airline On-Time Statistics and Delay Causes from RITA
+
+ - We use the Airline On-Time Statistics and Delay Causes from RITA
     A 1% sample of the "airline" dataset available at
      http://stat-computing.org/dataexpo/2009/the-data.html This data
      originally comes from RITA (http://www.rita.dot.gov) and is in the
      public domain.
- -) For this example, we will use, a subset of above dataset, which is shipped with R4ML
- -) User can use the bigger dataset from RITA and our code will work with that.
+
+ - For this example, we will use, a subset of above dataset, which is shipped with R4ML
+
+ - User can use the bigger dataset from RITA and our code will work with that.
 
 
 
