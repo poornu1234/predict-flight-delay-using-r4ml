@@ -10,7 +10,7 @@ When the reader has completed this journey, they will understand how to:
 
 The Intended audience of this code pattern is data scientists, who wish to apply scalable machine learning algorithms using R.
 
-This specific Code Pattern will provide a SVM (Suport Vector Machine) example to demonstrate the ease and power of R4ML in implementing scalable classification. R4ML provides various out-of-the-box algorithms to experiment with. For more information about additional R4ML functionality, support, documentation, and roadmap, please vist [R4ML](https://github.com/CODAIT/r4ml).
+This specific Code Pattern will provide a SVM (Suport Vector Machine) example to demonstrate the ease and power of R4ML in implementing scalable classification. R4ML provides various out-of-the-box algorithms to experiment with. For more information about additional R4ML functionality, support, documentation, and roadmap, please visit [R4ML](https://github.com/CODAIT/r4ml).
 
 ### What problem does it solve for developers?
 
@@ -156,7 +156,7 @@ Under the `File` menu, there are several ways to save your notebook:
 
 ### How to share your work:
 
-You can share your notebook by selecting the “Share” button located in the top
+You can share your notebook by selecting the `Share` button located in the top
 right section of your notebook panel. The end result of this action will be a URL
 link that will display a “read-only” version of your notebook. You have several
 options to specify exactly what you want shared from your notebook:
