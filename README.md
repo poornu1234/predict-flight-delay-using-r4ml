@@ -89,7 +89,7 @@ Log in or sign up for IBM's [Watson Studio](https://dataplatform.ibm.com).
 
 ![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/add_service.png)
 
-* Either choose and `Existing` Spark service, or create a `New` one
+* Either choose an `Existing` Spark service, or create a `New` one
 
 <img width="500" src="https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/add_existing_spark_service.png">
 
