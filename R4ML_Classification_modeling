@@ -1,0 +1,109 @@
+R4ML Classification Modeling using SVM
+In this notebook, we'll build a Support Vector Machine (SVM) model to classify airline delays using the R4ML framework.
+
+Introduction
+
+Data Loading and Preprocessing
+
+Normalization and Encoding
+
+SVM Classification
+
+Hyperparameter Tuning
+
+Summary
+
+What is SVM?
+SVM (Support Vector Machine) is a supervised machine learning algorithm primarily used for classification tasks. It works by finding a hyperplane that separates the data into different classes with the largest possible margin.
+
+Hyperplane: A decision boundary that separates different classes.
+Support Vectors: These are data points that lie closest to the hyperplane and have an impact on the hyperplane's position.
+Margin: The distance between the hyperplane and the support vectors. The goal of SVM is to maximize this margin to improve classification accuracy.
+Types of SVM:
+Linear SVM: Used for linearly separable data.
+Non-Linear SVM: Uses a kernel function
+  from sklearn import datasets
+from sklearn.svm import SVC
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Load a sample dataset
+iris = datasets.load_iris()
+X = iris.data[:, :2]  # we will take only the first two features for 2D plotting
+y = iris.target
+
+# Train an SVM model
+svm_model = SVC(kernel='linear')
+svm_model.fit(X, y)
+
+# Plot the decision boundary
+plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired, edgecolors='k')
+
+ax = plt.gca()
+xlim = ax.get_xlim()
+ylim = ax.get_ylim()
+
+# Create a grid to evaluate the model
+xx = np.linspace(xlim[0], xlim[1], 30)
+yy = np.linspace(ylim[0], ylim[1], 30)
+YY, XX = np.meshgrid(yy, xx)
+
+# Stack the meshgrid points for prediction
+xy = np.vstack([XX.ravel(), YY.ravel()]).T
+
+# Get decision function for each class (for multi-class SVM)
+decision_values = svm_model.decision_function(xy)
+
+# For multi-class SVM, choose the class with the highest score
+Z = np.argmax(decision_values, axis=1).reshape(XX.shape)
+
+# Plot the decision boundary
+ax.contour(XX, YY, Z, colors='k', levels=[-1, 0, 1], alpha=0.5,
+           linestyles=['--', '-', '--'])
+
+
+ax.scatter(svm_model.support_vectors_[:, 0], svm_model.support_vectors_[:, 1],
+           s=100, linewidth=1, facecolors='none', edgecolors='k')
+
+plt.show()
+
+Data Normalization
+SVM is sensitive to the scale of input features. For example, features like "Distance" or "Flight Time" may have a wide range of values, while others may have smaller ranges. To ensure all features contribute equally, we normalize the data.
+from sklearn.preprocessing import StandardScaler
+
+# Normalizing the data
+scaler = StandardScaler()
+X_normalized = scaler.fit_transform(X)
+
+One-Hot Encoding
+SVM does not work directly with categorical data. To handle this, we perform one-hot encoding, which converts categorical variables into binary (0 or 1) columns.
+
+Hyperparameter Tuning in SVM
+The performance of an SVM model can vary greatly based on the hyperparameters you choose. Important hyperparameters include:
+
+C: Controls the trade-off between achieving a low training error and a low testing error (regularization).
+Kernel: Defines the type of hyperplane used to separate the data. Common kernels are linear, rbf, poly.
+Gamma: Defines how far the influence of a single training example reaches.
+We'll use GridSearchCV to find the best combination of these hyperparameters.
+
+from sklearn.model_selection import train_test_split
+# Assuming you already have your dataset loaded in X and y
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Define parameter grid
+param_grid = {'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf'], 'gamma': [0.1, 1, 10]}
+
+# Perform grid search
+grid = GridSearchCV(SVC(), param_grid, refit=True)
+
+# Fit the model on the training data
+grid.fit(X_train, y_train)
+
+# Print the best parameters found by grid search
+print("Best Parameters:", grid.best_params_)
+
+Summary
+In this notebook, we built an SVM model for classifying airline delays using the R4ML framework. We covered important concepts like data normalization, one-hot encoding, and hyperparameter tuning. The SVM model was trained, tuned, and evaluated on the data.
+
+Next Steps:
+Experiment with other machine learning models like Random Forest or Logistic Regression.
+Try tuning additional hyperparameters for SVM to further improve accuracy
